@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->required();
+            $table->string('mom')->required();
+            $table->string('father')->required();
+            $table->enum('gender', ['L', 'P']); 
+            $table->string('phone_number')->required();
+            $table->longText('address')->required();
+            $table->text('note')->nullable();
+
             $table->timestamps();
         });
     }
