@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('violators', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->required();
-            $table->foreign('violation_id')->references('id')->on('reason_violations')->onDelete('cascade')->required();
+            $table->foreignId('user_id');
+            $table->foreignId('violation_id');
             $table->timestamps();
         });
     }

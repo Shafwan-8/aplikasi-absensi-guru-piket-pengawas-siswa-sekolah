@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('phone_number')->required();
             $table->string('email')->required();
 
-            $table->foreign('parent_id')->references('id')->on('parent')->onDelete('cascade')->required();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->required();
+            $table->foreignId('parent_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
