@@ -42,7 +42,7 @@
                     <ul class="navbar-nav pt-2">
         
                         <li class="nav-item #">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">
                                 <span class="nav-link-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -189,8 +189,8 @@
             </div>
 
             <div class="page-body">
-                {{-- card information --}}
                 <div class="container-xl">
+                    {{-- card information --}}
                     <div class="row row-deck row-cards">
                         <div class="col-12">
                             <div class="row row-cards">
@@ -278,7 +278,23 @@
                             </div>
                         </div>
                     </div>
+
+                    {{--  --}}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Lorem, ipsum dolor.</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatibus culpa non eos voluptates reiciendis eaque sed soluta quae suscipit minus, eligendi quo nihil officia veniam natus molestias, magni repellendus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                
             </div>
         </div>
     </div>
