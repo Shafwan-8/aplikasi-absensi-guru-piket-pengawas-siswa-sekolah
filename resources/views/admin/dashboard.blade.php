@@ -84,7 +84,11 @@
                                     <div class="dropdown-menu-column">
                                         <a class="dropdown-item #"
                                             href="#">
-                                            Data User
+                                            Data User Admin
+                                        </a>
+                                        <a class="dropdown-item #"
+                                            href="#">
+                                            Data Guru
                                         </a>
                                         <a class="dropdown-item #"
                                             href="#">
