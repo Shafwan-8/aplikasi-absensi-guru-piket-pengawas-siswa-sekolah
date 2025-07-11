@@ -11,16 +11,16 @@ class UserController extends Controller
      */
     public function admins()
     {
-        return view('admin.user.admin.index');
+        return view('admin.users.admin.index');
     }
-    
+
     public function teachers()
     {
-        
+
     }
     public function parents()
     {
-        
+
     }
 
     /**
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     }
 
     /**
