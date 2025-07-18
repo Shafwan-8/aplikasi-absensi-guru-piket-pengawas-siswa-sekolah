@@ -28,82 +28,44 @@
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav pt-2">
                 @foreach (config()->get('sidebar') as $test)
-                    {{-- @dd($test) --}}
                     @php
                         $nav_link = $test['route_name'] != null ? route($test['route_name']) : 'javascript:void(0)';
                     @endphp
-                    <li class="nav-item {{ $test['active'] == 'dashboard' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ $nav_link }}">
-                            <span class="nav-link-icon">
-                                <i class="{{ $test['icon'] }}"></i>
-                            </span>
-                            <span class="nav-link-title">
-                                {{ $test['title'] }}
-                            </span>
-                        </a>
-
-
+                    <li
+                        class="nav-item {{ Request::routeIs($test['route_name']) ? 'active' : '' }} {{ $test['has_sub'] == true ? 'dropdown' : '' }}">
+                        @if ($test['has_sub'] == true)
+                            <a class="nav-link dropdown-toggle" href="{{ $nav_link }}" data-bs-toggle="dropdown"
+                                data-bs-auto-close="false" role="button">
+                                <span class="nav-link-icon">
+                                    <i class="{{ $test['icon'] }}"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Master
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        @foreach ($test['sub'] as $test_sub)
+                                            <a class="dropdown-item {{ Request::routeIs($test_sub['route_name']) ? 'active' : '' }}" href="{{ route($test_sub['route_name']) }}">
+                                                {{ $test_sub['title'] }}
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <a class="nav-link" href="{{ $nav_link }}">
+                                <span class="nav-link-icon">
+                                    <i class="{{ $test['icon'] }}"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    {{ $test['title'] }}
+                                </span>
+                            </a>
+                        @endif
                     </li>
                 @endforeach
-
-                <li class="nav-item dropdown #">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span class="nav-link-icon ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-database">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" />
-                                <path d="M4 6v6a8 3 0 0 0 16 0v-6" />
-                                <path d="M4 12v6a8 3 0 0 0 16 0v-6" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Master
-                        </span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-menu-columns">
-                            <div class="dropdown-menu-column">
-                                <a class="dropdown-item #" href="{{ route('users.admin') }}">
-                                    Data User Admin
-                                </a>
-                                <a class="dropdown-item #" href="#">
-                                    Data Guru
-                                </a>
-                                <a class="dropdown-item #" href="#">
-                                    Data Siswa
-                                </a>
-                                <a class="dropdown-item #" href="#">
-                                    Data Alasan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span class="nav-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                                <path d="M9 17l0 -5" />
-                                <path d="M12 17l0 -1" />
-                                <path d="M15 17l0 -3" />
-                            </svg>
-                        </span>
-                        <span class="nav-link-title">
-                            Cetak Laporan
-                        </span>
-                    </a>
-                </li>
 
                 <hr class="m-3">
 
