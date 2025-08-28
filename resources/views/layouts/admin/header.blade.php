@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/vendor/tabler-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vendor/tabler.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/dataTables.bootstrap5.min.css') }}">
+
 </head>
 <body>
     <div class="page">

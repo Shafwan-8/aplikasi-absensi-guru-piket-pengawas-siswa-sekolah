@@ -1,7 +1,7 @@
-<div class="page-header d-print-none">
+<div class="page-header d-print-none mb-3">
     <div class="container-xl">
         <div class="row g-2 align-items-center">
-            <div class="col">
+            <div class="col">   
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
                     {{ $pretitle }}
